@@ -57,3 +57,36 @@ class Category(models.Model):
 
     def __str__(self):
         return self.rusname
+
+
+class Work(models.Model):
+    title = models.CharField(max_length=150)
+    slug = models.SlugField(max_length=150, unique=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='works')
+    image = models.ImageField(upload_to='works')
+    description = models.TextField()
+    stack = models.TextField()
+    link = models.URLField(max_length=200)
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = 'Работа'
+        verbose_name_plural = 'Работы'
+
+    def __str__(self):
+        return self.title
+
+
+class Testimony(models.Model):
+    name = models.CharField(max_length=15)
+    lastname = models.CharField(max_length=15)
+    image = models.ImageField(upload_to='clients')
+    text = models.TextField()
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = 'Заказчик'
+        verbose_name_plural = 'Заказчики'
+
+    def __str__(self):
+        return f'{self.name}{self.lastname}'
