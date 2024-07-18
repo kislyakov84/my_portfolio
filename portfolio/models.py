@@ -29,6 +29,7 @@ class Author(models.Model):
     def __str__(self):
         return f'{self.name} {self.lastname}'
 
+
 class Message(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
@@ -43,3 +44,16 @@ class Message(models.Model):
 
     def __str__(self):
         return f'Сообщение от {self.name}: {self.subject}'
+
+
+class Category(models.Model):
+    engname = models.CharField(max_length=25)
+    rusname = models.CharField(max_length=25)
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+    def __str__(self):
+        return self.rusname

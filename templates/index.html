@@ -1,1 +1,22 @@
 {% extends 'base.html' %}
+{% block title %}Работы, виды услуг и отзывы{% endblock title %}
+{% block content %}
+    <section class="section site-portfolio">
+        <div class="container">
+            <div class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h2>Сергей Кисляков</h2>
+                    <p class="mb-0">Python - разработчик</p>
+                </div>
+                <div class="col-md-12 col-lg-6 text-start text-lg-end" data-aos="fade-up" data-aos-delay="100">
+                    <div id="filters" class="filters">
+                        <a href="#" data-filter="*" class="active">Все</a>
+                        {% for category in categories %}
+                            <a href="#" data-filter=".{{ category.engname }}">{{ category.rusname }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

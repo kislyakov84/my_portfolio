@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Author, Message
+from .models import Author, Message, Category
 
 
 def index(request):
+    categories = Category.objects.all()
+
     return render(request, "index.html")
 
 
