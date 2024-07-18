@@ -1,12 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .models import Author, Message, Category, Work, Testimony
+from .models import Author, Message, Category, Work, Testimony, Service
 
 
 def index(request):
     categories = Category.objects.all()
+    works = Work.objects.all()
+    services = Service.objects.all()
+    testimonies = Testimony.objects.all()
 
-    return render(request, "index.html")
+    context = {
+        'categories': categories,
+        'works': works,
+        'services': services,
+        'testimonies': testimonies,
+    }
+
+    return render(request, "index.html", context)
 
 
 def about(request):

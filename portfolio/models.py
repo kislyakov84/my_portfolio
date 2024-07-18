@@ -90,3 +90,17 @@ class Testimony(models.Model):
 
     def __str__(self):
         return f'{self.name}{self.lastname}'
+
+
+class Service(models.Model):
+    name = models.CharField(max_length=25)
+    icon = models.CharField(max_length=50)
+    description = models.CharField(max_length=200)
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'Сервис'
+        verbose_name_plural = 'Виды сервиса'
+
+    def __str__(self):
+        return self.name
