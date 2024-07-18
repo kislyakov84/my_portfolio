@@ -34,13 +34,21 @@
                         <a class="nav-link" href="{% url 'about' %}">Обо мне</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">Контакты</a>
+                        <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <main id="main">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible col-5" role="alert" id="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% block content %}{% endblock content %}
     </main>
     <footer class="footer" role="contentinfo">
