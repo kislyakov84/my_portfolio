@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
@@ -8,7 +9,8 @@ urlpatterns = [
     path('', index, name='index'),
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
-    path('work/<slug:slug>/', work_detail, name='work_detail')
+    path('work/<slug:slug>/', work_detail, name='work_detail'),
+    path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
