@@ -167,6 +167,7 @@ a:hover {
   background: #000;
 }
 
+/*
 .testimonial-wrap {
   padding: 50px 50px 80px 50px;
   background: #eceff2;
@@ -203,6 +204,7 @@ a:hover {
 .testimonials-slider .swiper-pagination .swiper-pagination-bullet-active {
   background-color: rgba(13, 30, 45, 0.6);
 }
+*/
 
 .sticky-content {
   position: sticky;

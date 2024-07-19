@@ -47,4 +47,4 @@ def work_detail(request, slug):
         'testimonies': testimonies,
     }
 
-    return  render(request, 'work_detail.html', context)
+    return render(request, 'work_detail.html', context)
