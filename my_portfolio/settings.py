@@ -1,7 +1,9 @@
+import os.path
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 SECRET_KEY = 'django-insecure-eaz2k645@rf%yx80fv796s5ikr4inj-017!_mc13sebylxc3fz'
 
@@ -104,5 +106,9 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
